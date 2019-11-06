@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div {
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+input {
+  width: 500px;
+  height: 30px;
+}
+
+button {
+  width: 504px;
+  height: 30px;
+}

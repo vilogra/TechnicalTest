@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>N-th Smallest Number</title>
+  </head>
+  <body>
+    <div id="result"></div>
+    <input
+      type="text"
+      id="getNumber"
+      placeholder="Input number with dot ex (1.2.44)"
+    />
+    <input type="text" id="inputNumber" placeholder="Input N-th number" />
+    <button id="submit" onclick="findNumber()">Find Smallest Number</button>
+
+    <script>
+      function bubbleSort(numPos) {
+        let swapped;
+        do {
+          swapped = false;
+          for (let i = 0; i < numPos.length - 1; i++) {
+            if (numPos[i] > numPos[i + 1]) {
+              let temp = numPos[i];
+              numPos[i] = numPos[i + 1];
+              numPos[i + 1] = temp;
+              swapped = true;
+            }
+          }
+        } while (swapped);
+        return numPos;
+      }
+
+      function findNumber() {
+        let getNumber = document.getElementById("getNumber").value;
+        let inputNumber = document.getElementById("inputNumber").value;
+
+        if (getNumber == "" && inputNumber == "") {
+          alert("Fill the blank first!");
+        } else {
+          split = getNumber.split(".");
+
+          for (let i = 0; i < split.length; i++) {
+            split[i] = parseInt(split[i], 10);
+          }
+
+          let sorted = bubbleSort(split);
+
+          let result = sorted[inputNumber - 1];
+
+          document.getElementById("result").innerHTML = result;
+        }
+      }
+    </script>
+  </body>
+</html>
